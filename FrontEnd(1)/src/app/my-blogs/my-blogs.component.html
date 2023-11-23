@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" *ngIf="display">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Blogs</title>
+    
+    
+  </head>
+  <body>
+     <img
+      class="bg-image"
+      src="../assets/myblogs.jpg"
+      alt="background-image"
+    />
+   <div class="container ">
+    <div class="row ">
+      <app-blog-card class="col col-sm-12 col-md-6 my-3"  *ngFor = " let blog of blogs | paginate:{itemsPerPage:8, currentPage:p }" [blog]="blog"> </app-blog-card>
+    
+      <!-- <div class="col col-sm-12 col-md-6 my-4"  *ngFor = " let blog of blogs | paginate:{itemsPerPage:8, currentPage:p }">
+        <div class="card col" >
+            <div class="card-body py-0 px-0">
+              <h5 class="card-title text-start py-2 mb-0 px-3" id="CardHeader" routerLink ="../View-Blog">Card title</h5>
+              
+              <p class="card-text text-start py-2 mx-3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+             <div class="container-fluid">
+              <span class="text-secondary">
+                <i class="bi bi-chat"></i>
+                <h6 class="mx-1 text-start">6 comments</h6>
+              </span>
+              
+            </div>
+            </div>
+          </div>
+      </div> -->
+    </div>
+  </div>
+  
+   <div class="flexpaginator">
+    <div class="paginatorContainer">
+      <pagination-controls class="paginator"  (pageChange)="p=$event"></pagination-controls>
+  </div>
+  </div>
+  <!-- <div class="d-flex justify-content-center mt-3">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </nav>
+  </div> -->
+
+  <!-- <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-6" *ngFor="let blog of paginatedBlogs">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title" (click)="openBlog(blog.id)">{{ blog.title }}</h5>
+            <p class="card-text">{{ blog.content | slice:0:100 }}...</p>
+            <p class="card-text">Author: {{ blog.author }}</p>
+            <p class="card-text">Comments: {{ blog.comments }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="d-flex justify-content-center">
+      <pagination-controls (pageChange)="pageChanged($event)" class="my-4"></pagination-controls>
+    </div> 
+  </div> -->
+    
+  </body>
+</html>
+
+
+
+
+

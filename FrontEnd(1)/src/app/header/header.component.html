@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login Signup</title>
+  </head>
+  <body>
+    <img
+      class="bg-image"
+      src="../assets/loginsignup.jpg"
+      alt="background-image"
+      *ngIf="!loggedin"
+    />
+
+    <nav class="navbar navbar-expand-lg" id="NavbarBackground">
+      <div class="container">
+        <nav class="navbar">
+          <div class="container">
+            <a class="navbar-brand bg-col fs-2" id="LoginPageLogo">
+              <img
+                src="../assets/download.jpg"
+                alt="Logo"
+                width="60"
+                height="50"
+                class="d-inline-block align-text-top"
+              />
+              Blog IT!
+            </a>
+          </div>
+        </nav>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item d-flex">
+              <!-- Button trigger modal -->
+              <button
+                type="button"
+                class="btn btn-primary btn-lg m-2"
+                data-bs-toggle="modal"
+                data-bs-target="#LoginModal"
+                *ngIf="!loggedin"
+              >
+                Login
+              </button>
+
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="LoginModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">
+                        Login
+                      </h1>
+                      <button
+                        type="button"
+                        class="btn-close btn-lg"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                        id="x"
+                        (click)="onModalClosed()"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <form
+                        #LoginForm="ngForm"
+                        (ngSubmit)="OnLogin(LoginForm.value)"
+                      >
+                        <div class="mb-3">
+                          <label for="EmailIdL" class="form-label"
+                            >Email address</label
+                          >
+                          <input
+                            type="email"
+                            class="form-control"
+                            id="EmailIdL"
+                            aria-describedby="emailHelp"
+                            name="emailL"
+                            ngModel
+                          />
+                        </div>
+                        <div class="mb-3">
+                          <label for="PasswordL" class="form-label"
+                            >Password</label
+                          >
+                          <input
+                            type="password"
+                            class="form-control"
+                            id="PasswordL"
+                            name="passwordL"
+                            ngModel
+                          />
+                        </div>
+                        <div class="modal-footer">
+                          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                          <div
+                            class="card InvalidCredentials fs-5"
+                            *ngIf="Errror"
+                          >
+                            <div class="card-body">Invalid Credentials!</div>
+                          </div>
+                          <button type="submit" class="btn btn-primary">
+                            Login
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                class="btn btn-primary btn-lg m-2"
+                data-bs-toggle="modal"
+                data-bs-target="#SignupModal"
+                *ngIf="!loggedin"
+              >
+                Signup
+              </button>
+
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="SignupModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">
+                        Signup
+                      </h1>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                        id="y"
+                        (click)="onModalClosed()"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <form
+                        #Signup="ngForm"
+                        (ngSubmit)="OnRegister(Signup.value)"
+                      >
+                        <div class="mb-3">
+                          <label for="username" class="form-label"
+                            >Username</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="username"
+                            ngModel
+                            name="usernameS"
+                          />
+                        </div>
+                        <div class="mb-3">
+                          <label for="EmailS" class="form-label"
+                            >Email address</label
+                          >
+                          <input
+                            type="email"
+                            class="form-control"
+                            id="EmailS"
+                            aria-describedby="emailHelp"
+                            ngModel
+                            name="emailS"
+                          />
+                        </div>
+                        <div class="mb-3">
+                          <label for="PasswordS" class="form-label"
+                            >Password</label
+                          >
+                          <input
+                            type="password"
+                            class="form-control"
+                            id="PasswordS"
+                            ngModel
+                            name="passwordS"
+                          />
+                        </div>
+                        <div class="modal-footer">
+                          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                          <button type="submit" class="btn btn-primary">
+                            Signup
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <input
+                type="radio"
+                name="Tab"
+                id="Upload"
+                value="Upload"
+                [ngStyle]="{ display: 'none' }"
+                #tab3
+                [(ngModel)]="ActiveTab"
+                (change)="RadioValue()"
+              />
+              <label
+                for="Upload"
+                class="py-2 fs-3 fw-bold text-decoration-none text-light Tab"
+                [ngClass]="{ Active: ActiveTab === 'Upload' }"
+                (click)="onUpload()"
+                routerLink="Create-Blog"
+                *ngIf="loggedin"
+              >
+                Upload
+              </label>
+              <!-- <a
+                class="mx-3 py-2 fs-3 fw-bold text-decoration-none text-light"
+                routerLink="Create-Blog"
+                *ngIf="loggedin"
+              >
+                Upload
+              </a> -->
+              <input
+                type="radio"
+                name="Tab"
+                id="My-Blogs"
+                value="My-Blogs"
+                [ngStyle]="{ display: 'none' }"
+                #tab2
+                [(ngModel)]="ActiveTab"
+                (change)="RadioValue()"
+                *ngIf="loggedin"
+              />
+              <label
+                for="My-Blogs"
+                class="py-2 fs-3 fw-bold text-decoration-none text-light Tab"
+                [ngClass]="{ Active: ActiveTab === 'My-Blogs' }"
+                routerLink="My-Blogs"
+                (click)="forViewBlog('My-Blogs')"
+                *ngIf="loggedin"
+              >
+                My Blogs
+              </label>
+              <!-- <a
+                class="mx-3 py-2 fs-3 fw-bold text-decoration-none text-light"
+                routerLink="My-Blogs"
+                *ngIf="loggedin"
+              >
+                My Blogs
+              </a> -->
+              <!-- <a class=" mx-3 py-2 fs-3 fw-bold text-decoration-none text-light" routerLink="All-Blogs" *ngIf="loggedin"> All Blogs </a> -->
+              <input
+                type="radio"
+                name="Tab"
+                id="All-Blogs"
+                value="All-Blogs"
+                [ngStyle]="{ display: 'none' }"
+                #tab1
+                [(ngModel)]="ActiveTab"
+                (change)="RadioValue()"
+              />
+              <label
+                for="All-Blogs"
+                class="py-2 fs-3 fw-bold text-decoration-none text-light Tab"
+                [ngClass]="{ Active: ActiveTab === 'All-Blogs' }"
+                routerLink="All-Blogs"
+                (click)="forViewBlog('All-Blogs')"
+                *ngIf="loggedin"
+              >
+                All Blogs
+              </label>
+
+              <form
+                #search="ngForm"
+                (ngSubmit)="onSearch(search.value)"
+                class="d-flex"
+                role="search"
+                *ngIf="loggedin"
+              >
+                <input
+                  class="form-control m-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                  ngModel
+                  name="title"
+                  id="searchtxt"
+                />
+                <button class="btn btn-outline-success m-2" type="submit">
+                  Search
+                </button>
+              </form>
+
+              <button
+                type="button"
+                class="btn btn-primary btn-lg m-2"
+                *ngIf="loggedin"
+                (click)="togglelog(); OnLoggedOut()"
+              >
+                Logout
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script> -->
+  </body>
+</html>

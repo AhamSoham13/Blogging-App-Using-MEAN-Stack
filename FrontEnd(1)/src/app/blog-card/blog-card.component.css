@@ -1,0 +1,17 @@
+#CardHeader {
+    background-color: rgba(100, 148, 237, 0.5);
+    cursor: pointer;
+    position: relative;
+}
+#author {
+    position:absolute;
+    top:0;   
+    right:0;
+    margin-top: 10px;
+    margin-right: 10px;
+    
+    
+}
+.card-body{
+ height: 172px;
+}

@@ -1,0 +1,30 @@
+Routing  :- Implemented
+
+ngFor :- Implemented (blog-cards)
+ngIf :- Implemented   (nav-bar)
+
+String Interpolation {{}}:- Implemented
+
+Property Binding []  
+@Input :- Custome Property Binding :- Implemented 
+
+Event Binding ()  :- Implemented (click in header tabs)
+@Output Custome event binding Event Emmiter , $event
+     
+
+Sibling Component Communication @Input @Output & Option is Service
+
+TwoWay Binding & NgModel :- Implemented (header tab)
+
+ngStyle :- Implemented (header radio)
+ngClass :- Implemented (header radio)
+
+#Templete Reference , Component Reference , Directive Reference...later
+
+@ViewChild() :- Implemented on DOM , CHILD, Directive Left , ngONInit() :- Implemented for getAPI
+
+Service & Injector :-Basic :- Implemented Shared , Basic property sharing from header to view-blog 
+
+HTTP Request:- POST GET Implemented
+
+

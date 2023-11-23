@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Create / EDIT</title>
+  </head>
+  <body>
+    <h1 class="text-center fs-1 fw-bold" id="CreatePageTitle" *ngIf="FormModeCreate">
+      CREATE NEW BLOG !
+    </h1>
+    <h1 class="text-center fs-1 fw-bold" id="CreatePageTitle" *ngIf="!FormModeCreate">
+      EDIT YOUR BLOG 
+    </h1>
+    <img
+      class="bg-image"
+      src="../assets/Create.jpg"
+      id="background-image"
+      alt="background-image"
+    />
+
+    <form
+      #createblog="ngForm"
+      (ngSubmit)="OnPublish(createblog.value)"
+      [formGroup]="reactiveForm"
+    >
+      <div class="container">
+        <div class="mb-3">
+          <label for="Title" class="form-label fs-2 fw-bold ">BLOG TITLE</label>
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            id="Title"
+            placeholder="TITLE"
+            formControlName="title"
+            
+          />
+        </div>
+        <div class="mb-3">
+          <label for="Content" class="form-label fs-2 fw-bold">Content </label>
+          <textarea
+            class="form-control form-control-lg Contentt "
+            id="Content"
+            rows="10"
+            formControlName="body"
+           placeholder="Your Content..."
+            
+          ></textarea>
+        </div>
+        <button *ngIf="FormModeCreate" type="submit" class="btn btn-primary btn-lg">PUBLISH</button>
+        <button *ngIf="!FormModeCreate" type="button" class="btn btn-primary btn-lg" (click)="OnUpdate(createblog.value)">Update</button>
+      </div>
+    </form>
+  </body>
+</html>

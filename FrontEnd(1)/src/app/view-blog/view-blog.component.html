@@ -1,0 +1,84 @@
+<div *ngIf="Loggedin && blog">
+  <div class="ForCommentPositioning card container">
+    <div class="card container p-0 my-5">
+      <div class="card-body p-0">
+        <div class="blogheader">
+          <h5 class="card-title text-center fs-1 m-0 py-3">{{ blog.title }}</h5>
+          <p id="p1" class="fs-5 fst-italic fw-semibold">
+            {{ blog.authorDetail.name }}
+          </p>
+          <p id="p2" class="fs-6 text-secondary">
+            {{ blog.authorDetail.email }}
+          </p>
+        </div>
+
+        <p class="card-text fs-4 mx-5 my-3">
+          {{ blog.body }}
+        </p>
+        <div class="d-flex m-3 flex-row-reverse">
+          <button
+            type="button"
+            class="btn btn-danger mx-2 fw-bold fs-5"
+            *ngIf="Tab === 'My-Blogs'"
+            (click)="deleteBlog()"
+            routerLink="../My-Blogs"
+          >
+            Delete
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary fw-bold fs-5"
+            *ngIf="Tab === 'My-Blogs'"
+            (click)="onEdit()"
+            routerLink = '../Edit-Blogs'
+          >
+            Edit
+          </button>
+
+          <button
+            type="submit"
+            class="btn btn-primary fw-bold fs-5"
+            (click)="toggleCommentBox()"
+            id="docomment"
+          >
+            Comment
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <form
+    #postcomment="ngForm"
+    (ngSubmit)="onPosting( postcomment.value )">
+      <div *ngIf="DisplayCommentBox" id="commentkhoka" class="card ">
+      <label class="card-header fs-4 fw-bold fst-italic " id="khokanaam" for="commentbox"> Comment </label>
+      
+        <textarea class="card-body container-fluid" name="comment" ngModel id="commentbox" cols="30" rows="5" placeholder="Your Comment..." maxlength="300"></textarea>
+        <button type="submit" class="btn btn-primary conatiner" id="postbtn" >Post</button>
+      
+    </div>
+
+    </form>
+    
+    <a
+      class="ViewComment fs-4 pb-3 link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+      (click)="ViewComments()"
+    >
+      View <span> {{ blog.comments.length }} </span> Comments ->
+    </a>
+  </div>
+
+  <div *ngIf="ShowComments">
+    <div class="card container mb-4" *ngFor="let comment of blog.comments">
+      <div class="card-body">
+        <h4 class="card-title" id="comment">{{ comment.name }}</h4>
+        <h5>Comment</h5>
+
+        <p class="card-text">
+          {{ comment.comment }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

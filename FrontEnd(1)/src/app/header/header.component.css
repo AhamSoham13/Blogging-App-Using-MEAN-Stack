@@ -1,0 +1,54 @@
+.bg-image {
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
+  filter: blur(5px) brightness(0.7);
+  position: absolute;
+  /* top:0;
+  left: 0;
+  z-index:-1; */
+}
+
+#NavbarBackground
+{
+    background-color: rgb(209, 209, 209);
+}
+
+.Tab {
+     border: 2px solid #ccc;
+    border-radius: 5px;
+   transform: translate(0, -3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.397);
+  background-color: rgba(128, 128, 128, 0.397);
+  padding : 10px;
+  width: 150px;
+  text-align: center;
+}
+/* .Tab:hover {
+  transform: none;
+  box-shadow: none;
+   
+} */
+.Active {
+   border: 2px solid #ccc;
+  color: #fff;
+ background-color: rgba(128, 128, 128, 0.8);
+  transform: translate(0, -1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar>.container {
+  margin-left: 20px;
+}
+
+/* @media (min-width: 992px){
+  .navbar-expand-lg .navbar-collapse{
+    margin-left: 50px;
+}
+} */
+
+.InvalidCredentials
+{
+  color: rgba(255, 0, 0);
+  border: none;
+}

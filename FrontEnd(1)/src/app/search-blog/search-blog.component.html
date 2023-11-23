@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" *ngIf="display">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Blogs</title>
+    
+    
+  </head>
+  <body>
+     <img
+      class="bg-image"
+      src="../assets/search.jpg"
+      alt="background-image"
+    />
+   <div class="container ">
+    <div class="row ">
+      <app-blog-card class="col col-sm-12 col-md-6 my-3"  *ngFor = " let blog of blogs | paginate:{itemsPerPage:8, currentPage:p }" [blog]="blog"> </app-blog-card>
+    
+    
+    </div>
+  </div>
+  
+   <div class="flexpaginator">
+    <div class="paginatorContainer">
+      <pagination-controls class="paginator"  (pageChange)="p=$event"></pagination-controls>
+  </div>
+  </div>
+ 
+    
+  </body>
+</html>
+
+
+
+
+
+

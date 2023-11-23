@@ -1,0 +1,72 @@
+.card-title {
+    background-color: rgba(30, 143, 255, 0.5);
+}
+.btn{
+    width: 120px;
+    height: 40px;
+    border-radius: 10px;
+    padding: 0;
+}
+#comment {
+    height: 40px;
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
+.ForCommentPositioning {
+    position: relative;
+    background-color: transparent;
+    border:none;
+    padding-bottom: 12px;
+}
+
+.ViewComment {
+    position:absolute;
+    bottom: 0;
+    cursor: pointer;
+}
+
+.blogheader{
+    position: relative;
+}
+.blogheader p{
+    position:absolute;
+    right:0;
+   
+}
+
+#p1{
+    top:25px;
+    right:20px;
+}
+#p2{
+    top: 50px;
+    right: 20px;
+}
+#commentkhoka{
+    border: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+}
+#khokanaam{
+    border: 2px,solid black;
+    border-bottom: none;
+    /* border-radius: 10px; */
+    background-color: rgba(128, 128, 128, 0.3);
+    width: 100%;
+   border-top-left-radius: 10px;
+   border-top-right-radius: 10px;
+}
+#commentbox{
+    width: 100%;
+   
+}
+#postbtn{
+     margin-bottom: 5px;
+     display: block;
+}
+
+#docomment{
+    margin-right: 8px;
+}

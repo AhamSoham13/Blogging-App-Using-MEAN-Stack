@@ -1,0 +1,20 @@
+<div>
+        <div class="card col" >
+            <div class="card-body py-0 px-0">
+              <h5 class="card-title text-start py-2 mb-0 px-3" id="CardHeader" (click)="readBlog(blog._id)" routerLink="/View-Blog">{{blog.title}} 
+                <div id="author" class="fs-6 fst-italic fw-normal text-secondary">
+                  {{blog.authorDetail.name}}
+                </div>
+              </h5>
+              
+              <p class="card-text text-start py-2 mx-3"> {{blog.body.substring(0,200)}} <span class="fs-6 fst-italic  text-info">"....Click On Title To read Further"</span> </p>
+             <div class="container-fluid">
+              <span class="text-secondary">
+                <i class="bi bi-chat"></i>
+                <h6 class="mx-1 text-start">{{blog.comments.length}} Comments</h6>
+              </span>
+              
+            </div>
+            </div>
+          </div>
+      </div>

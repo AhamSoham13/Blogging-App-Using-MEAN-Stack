@@ -1,0 +1,31 @@
+.bg-image {
+  height: auto;
+  width: 100vw;
+  object-fit: cover;
+  filter: blur(5px) brightness(0.7);
+  position: absolute;
+  /* top:0;
+  left: 0;
+  z-index:-1; */
+}
+
+#CardHeader {
+    background-color: rgba(100, 148, 237, 0.5);
+    cursor: pointer;
+}
+
+.flexpaginator{
+display: flex;
+justify-content: center;
+
+}
+.paginatorContainer {
+
+  max-width: 450px;
+  z-index: 1;
+  padding-top: 15px;
+  padding-right: 30px;
+  background-color: white;
+  border-radius: 20px;
+  
+}
