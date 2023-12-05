@@ -1,4 +1,4 @@
-// const { updateOne } = require('../model/blogSchema'); // delete
+
 const Blog = require("../model/blogSchema");
 // const mongoose = require("mongoose");
 
@@ -11,8 +11,7 @@ const createBlog = async (req, res, next) => {
 
   const id = req.user.id;
   try {
-    // const blogPost = await Blog.create({title, body, authorDetail: id, postedAt, tags});// the mapping is done based on the names of the fields in the schema. If the variable names in your code match the field names in the schema, you can directly pass them as values without specifying the key. If the names don't match, or if you want to explicitly specify a key, you can use the key-value syntax.
-    // res.json({ blogPost });
+   
     const blogPost = await Blog.create({ title, body, authorDetail: id }); //using this we Populate author details
     res.status(200).json({ blogPost, message: "Blog Created Successfully" });
   } catch (error) {
@@ -27,8 +26,7 @@ const getAllBlogs = async (req, res, next) => {
     const blogs = await Blog.find({}).populate(
       "authorDetail",
       "-email -password"
-    ); //.sort({ 'postedAt': -1 });
-    // console.log("get all blogs :- ",blogs);
+    ); 
     res.json({ blogs });
   } catch (error) {
     console.log(error.message);
