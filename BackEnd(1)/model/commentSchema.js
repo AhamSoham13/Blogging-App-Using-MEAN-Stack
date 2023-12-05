@@ -14,11 +14,7 @@ const commentSchema = mongoose.Schema({
         required: true,
         minLength: 1,
         maxLength: 300,
-    }//,
-    // postedAt: {
-    //     type: Date,
-    //     default: Date.now
-    // }
+    }
 });
 
 module.exports = commentSchema;
