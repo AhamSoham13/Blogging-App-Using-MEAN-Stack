@@ -2,21 +2,7 @@ const User = require('../model/userSchema');
 const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-// register
-// const registerUser = async (req, res, next) => {
-//     const { name, email, password } = req.body;
-//     let emailExists = await User.findOne({ email });
-//     if (emailExists) {
-//         return res.status(400).send('Email already Exists.');
-//     }
-//     const encPassword = bcryptjs.hashSync(password, 15);
-//     try {
-//       const newUser = await User.create({ name, email, password: encPassword });
-//       res.status(200).json({ newUser, message: 'User Successfully Registered'});
-//     } catch (error) {
-//       next({ status: 500, message: error.message });
-//     }
-// };
+
 const registerUser = async (req, res, next) => {
   //console.log(req.body);
   const { usernameS, emailS, passwordS } = req.body;
