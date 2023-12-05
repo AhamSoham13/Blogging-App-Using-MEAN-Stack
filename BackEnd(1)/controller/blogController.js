@@ -94,8 +94,8 @@ const getYourBlogs = async (req, res, next) => {
   try {
     const id = req.user.id;
     const blogs = await Blog.find({ authorDetail: id })
-      .populate("authorDetail", "-email -password")
-      .sort({ postedAt: -1 });
+      .populate("authorDetail", "-email -password");
+     // .sort({ postedAt: -1 });
     res.json({ blogs });
   } catch (error) {
     next({ status: 404, message: error.message });
