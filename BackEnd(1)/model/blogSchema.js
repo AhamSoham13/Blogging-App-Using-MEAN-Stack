@@ -14,15 +14,8 @@ const blogSchema = mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId, //Since we will be using populate this field
       ref: 'users'
      },
-    // tags: [String],
-     comments: [comment]//,
-    // postedAt: {
-    //   type: Date,
-    //   default: Date.now
-    // },
-    // updatedAt: {
-    //   type: Date,
-    //   default: Date.now
-    // }
+   
+     comments: [comment]
+    
 });
 module.exports = mongoose.model('blog', blogSchema);
